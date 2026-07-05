@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Carol Freuda — Corporate Finance Professional. MBA Finance. Senior Corporate Finance Analyst specializing in budgeting, forecasting, and financial modeling."/>
+<title>Carol Freuda | Corporate Finance Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg:        #080810;
+  --surface:   #0f0f1a;
+  --surface2:  #161625;
+  --gold:      #d4a84b;
+  --gold-lite: #ecc97a;
+  --gold-dim:  rgba(212,168,75,0.12);
+  --text:      #ece9e0;
+  --muted:     #7a7892;
+  --border:    rgba(212,168,75,0.18);
+  --green:     #4ade80;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
+
+/* NAV */
+nav {
+  position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;
+  justify-content:space-between;padding:1.4rem 5rem;background:rgba(8,8,16,.88);
+  backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:padding .3s;
+}
+nav.scrolled{padding:1rem 5rem;}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--gold);letter-spacing:.06em;text-decoration:none;}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;font-weight:500;position:relative;transition:color .25s;}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%;}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:4px;cursor:pointer;}
+.hamburger span{display:block;width:24px;height:1.5px;background:var(--gold);transition:all .3s;}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:190;background:rgba(8,8,16,.97);backdrop-filter:blur(24px);flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;color:var(--text);text-decoration:none;transition:color .25s;}
+.mobile-menu a:hover{color:var(--gold)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:9rem 5rem 5rem;position:relative;z-index:1;}
+.hero::before{content:'';position:absolute;top:10%;right:5%;width:500px;height:500px;background:radial-gradient(circle,rgba(212,168,75,.07) 0%,transparent 70%);pointer-events:none;}
+.chip{display:inline-flex;align-items:center;gap:.5rem;font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);border:1px solid var(--border);padding:.35rem .85rem;margin-bottom:1.8rem;width:fit-content;}
+.chip-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,6vw,6rem);font-weight:700;line-height:.95;letter-spacing:-.02em;color:#fff;margin-bottom:.6rem;}
+.hero-name em{color:var(--gold);font-style:italic;}
+.hero-sub{font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:2rem;}
+.hero-bio{font-size:1.02rem;line-height:1.85;color:var(--text);max-width:650px;margin-bottom:2.5rem;}
+.cta-row{display:flex;gap:1.5rem;flex-wrap:wrap;}
+.btn{display:inline-block;padding:.9rem 2.2rem;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;text-decoration:none;transition:all .3s;font-family:'Inter',sans-serif;}
+.btn-gold{background:var(--gold);color:var(--bg);clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));}
+.btn-gold:hover{background:var(--gold-lite);transform:translateY(-2px);}
+.btn-outline{background:transparent;color:var(--gold);border:1px solid var(--border);clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));}
+.btn-outline:hover{background:var(--gold-dim);transform:translateY(-2px);}
+
+/* METRICS PANEL */
+.metrics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2rem;margin-top:4rem;border-top:1px solid var(--border);padding-top:2.5rem;max-width:900px;}
+.metric-card h3{font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:var(--gold);font-weight:600;}
+.metric-card p{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-top:.2rem;}
+
+/* SECTIONS */
+section{padding:7rem 5rem;position:relative;border-bottom:1px solid rgba(212,168,75,.06);}
+.section-tag{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--gold);letter-spacing:.2em;text-transform:uppercase;margin-bottom:1rem;display:block;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;margin-bottom:3rem;color:#fff;}
+.section-title em{color:var(--gold);font-style:italic;}
+
+/* ABOUT */
+.about-container{display:grid;grid-template-columns:1fr 1fr;gap:4rem;}
+.about-text p{font-size:1.02rem;line-height:1.85;color:var(--text);margin-bottom:1.5rem;}
+.info-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.meta-itemlabel{font-size:.68rem;text-transform:uppercase;color:var(--muted);letter-spacing:.1em;}
+.meta-itemval{font-size:.95rem;color:var(--text);margin-top:.2rem;font-weight:500;}
+
+/* TIMELINE (EXPERIENCE) */
+.timeline{display:flex;flex-direction:column;gap:3rem;max-width:900px;}
+.time-node{display:grid;grid-template-columns:220px 1fr;gap:2rem;}
+.time-date{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--gold);letter-spacing:.05em;}
+.time-content h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:#fff;font-weight:600;margin-bottom:.3rem;}
+.time-org{font-size:.85rem;color:var(--gold-lite);text-transform:uppercase;letter-spacing:.05em;margin-bottom:1rem;}
+.time-bullets{list-style:none;display:flex;flex-direction:column;gap:.6rem;}
+.time-bullets li{font-size:.92rem;line-height:1.6;color:var(--text);position:relative;padding-left:1.2rem;}
+.time-bullets li::before{content:'—';position:absolute;left:0;color:var(--gold);}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem;}
+.skills-card{background:var(--surface);border:1px solid var(--border);padding:2.2rem;border-radius:2px;transition:transform .3s,border-color .3s;}
+.skills-card:hover{transform:translateY(-4px);border-color:var(--gold);}
+.skills-icon{font-size:1.8rem;margin-bottom:1.2rem;display:block;}
+.skills-card h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:#fff;margin-bottom:1.2rem;}
+.skills-list{list-style:none;display:flex;flex-direction:column;gap:.5rem;}
+.skills-list li{font-size:.88rem;color:var(--muted);position:relative;padding-left:1rem;}
+.skills-list li::before{content:'•';position:absolute;left:0;color:var(--gold);}
+
+/* RECEPTACLE FOR MINI COMPETENCIES */
+.comp-badges{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:3rem;max-width:900px;}
+.badge{font-family:'JetBrains Mono',monospace;font-size:.7rem;background:var(--surface2);border:1px solid rgba(212,168,75,.12);padding:.4rem 1rem;color:var(--text);letter-spacing:.05em;}
+
+/* CONTACT */
+.contact-container{display:grid;grid-template-columns:1fr 1fr;gap:4rem;}
+.contact-details{display:flex;flex-direction:column;gap:1.8rem;}
+.c-link{text-decoration:none;color:inherit;display:flex;align-items:center;gap:1rem;}
+.c-icon{width:40px;height:40px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.1rem;}
+.c-label{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;}
+.c-val{font-size:1rem;color:#fff;margin-top:.1rem;}
+
+/* FOOTER */
+footer{padding:3rem 5rem;border-top:1px solid var(--border);display:flex;justify-content:between;align-items:center;flex-wrap:wrap;gap:1.5rem;font-size:.8rem;color:var(--muted);}
+
+/* RESPONSIVENESS */
+@media(max-width:992px){
+  nav, nav.scrolled{padding:1.2rem 2.5rem;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .hero, section, footer{padding-left:2.5rem;padding-right:2.5rem;}
+  .about-container, .contact-container{grid-template-columns:1fr;gap:3rem;}
+  .time-node{grid-template-columns:1fr;gap:.5rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">C · F</a>
+  <ul class="nav-links">
+    <li><a href="#about" class="active">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="menuBtn" aria-label="Toggle Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAVIGATION -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" class="m-link">About</a>
+  <a href="#experience" class="m-link">Experience</a>
+  <a href="#skills" class="m-link">Skills</a>
+  <a href="#education" class="m-link">Education</a>
+  <a href="#contact" class="m-link">Contact</a>
+</div>
+
+<!-- HERO SECTION -->
+<main class="hero" id="home">
+  <div>
+    <div class="chip">
+      <span class="chip-dot"></span> Available for Opportunities
+    </div>
+    <h1 class="hero-name">Carol <em>Freuda</em></h1>
+    <p class="hero-sub">Corporate Finance Professional</p>
+    <p class="hero-bio">
